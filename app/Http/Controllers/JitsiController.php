@@ -19,11 +19,11 @@ class JitsiController extends Controller
     
         $meetingLink = uniqid(); 
 
-        // Obter o nome do professor a partir do usuário autenticado
+       
         $user = Auth::user();
         $teacherName = $user->name;
     
-        // Armazenar os dados do professor no banco de dados
+      
        
 $teacher = new Teacher([
     'name' => $teacherName,
@@ -43,11 +43,11 @@ $teacher->save();
 
     public function renderIframe($link)
     {
-        // Pegar as configurações da URL e passar para a view
+      
         $startWithAudioMuted = request()->query('startWithAudioMuted', false);
         $startWithVideoMuted = request()->query('startWithVideoMuted', false);
 
-        // Recuperar os dados do professor pelo link da reunião
+        
         $teacher = Teacher::where('meeting_link', $link)->first();
 
         if (!$teacher) {

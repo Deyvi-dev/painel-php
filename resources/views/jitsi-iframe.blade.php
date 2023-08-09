@@ -1,13 +1,13 @@
 <div id="meet"></div>
-<script src="https://meet.jit.si/libs/external_api.min.js"></script>
+<script src="https://meet-aulas.com.br/libs/external_api.min.js"></script>
 <script>
-    const domain = 'meet.jit.si';
+    const domain = 'meet-aulas.com.br';
     const options = {
-        roomName: 'JitsiMeetAPIExample',
+        roomName: '{{ $teacher->name }}-{{ $teacher->meeting_link }}',
         width: 700,
         height: 700,
         parentNode: document.querySelector('#meet'),
-        lang: 'de',
+        lang: 'pt',
         configOverwrite: {
             startWithAudioMuted: <?php echo $startWithAudioMuted ?>,
             securityUi: {
@@ -18,6 +18,4 @@
     };
     const api = new JitsiMeetExternalAPI(domain, options);
 
-    // Alerta para verificar o valor de disableLobbyPassword
-    alert('disableLobbyPassword: <?php echo $startWithVideoMuted; ?>');
 </script>
